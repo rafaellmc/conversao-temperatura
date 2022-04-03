@@ -83,7 +83,7 @@ spec:
   selector:
     app: temperatura
   ports:
-  - port: 3000
+  - port: 80
     targetPort: 8081
     #nodePort: 30000
   type: LoadBalancer
