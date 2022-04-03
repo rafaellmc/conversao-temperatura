@@ -1,46 +1,44 @@
 ## Deploy do MongoDB
 
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: mongodb1
-spec:
-  selector:
-    matchLabels:
-      app: mongodb1
-  template:
-    metadata:
-      labels:
-        app: mongodb1
-    spec:
-      containers:
-      - name: mongodb1
-        image: mongo:5.0.5
+#apiVersion: apps/v1
+#kind: Deployment
+#metadata:
+ # name: mongodb1
+#spec:
+ # selector:
+#    matchLabels:
+ #     app: mongodb1
+#  template:
+#    metadata:
+ #     labels:
+  #      app: mongodb1
+#    spec:
+ #     containers:
+  #    - name: mongodb1
+    #    image: mongo:5.0.5
         
-        ports:
-        - containerPort: 27018
-        env:
-          - name: MONGO_INITDB_ROOT_USERNAME
-            value: mongouser
-          - name: MONGO_INITDB_ROOT_PASSWORD
-            value: mongopwd
+    #    ports:
+      #  - containerPort: 27018
+      #  env:
+      #    - name: MONGO_INITDB_ROOT_USERNAME
+       #     value: mongouser
+        #  - name: MONGO_INITDB_ROOT_PASSWORD
+         #   value: mongopwd
 ---
 
 ## Service do MongoDB
-apiVersion: v1
-kind: Service
-metadata:
-  name: mongodb1
-spec:
-  selector:
-    app: mongodb1
-  ports:
-  - port: 27018
-  type: ClusterIP
+#apiVersion: v1
+#kind: Service
+#metadata:
+ # name: mongodb1
+#spec:
+ # selector:
+   # app: mongodb1
+ # ports:
+  #- port: 27018
+ # type: ClusterIP
     
----
-
-## Deplyment da página aplicação web Rotten Potatoes
+#---
 
 apiVersion: apps/v1
 kind: Deployment
@@ -61,17 +59,15 @@ spec:
         
         ports:
         - containerPort: 8081
-        env:
-         - name: MONGODB_DB
-           value: admin
-         - name: MONGODB_HOST
-           value: mongodb
-         - name: MONGODB_PORT
-           value: "27018"
-         - name: MONGODB_USERNAME
-           value: mongouser
-         - name: MONGODB_PASSWORD
-           value: mongopwd
+        #env:
+         #- name: MONGODB_HOST
+           #value: mongodb
+         #- name: MONGODB_PORT
+           #value: "27018"
+        # - name: MONGODB_USERNAME
+           #value: mongouser
+        # - name: MONGODB_PASSWORD
+           #value: mongopwd
 
 ---
 
