@@ -42,4 +42,4 @@ jobs:
         with:
           images: rafaellmc/conversao-temperatura:${{github.run_number}}
           manifests: |
-            k8s/deployment.yaml
+            k8s/deployment2.yaml
