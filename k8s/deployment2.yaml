@@ -3,18 +3,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mongodb
+  name: mongodb1
 spec:
   selector:
     matchLabels:
-      app: mongodb
+      app: mongodb1
   template:
     metadata:
       labels:
-        app: mongodb
+        app: mongodb1
     spec:
       containers:
-      - name: mongodb
+      - name: mongodb1
         image: mongo:5.0.5
         
         ports:
@@ -30,10 +30,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mongodb
+  name: mongodb1
 spec:
   selector:
-    app: mongodb
+    app: mongodb1
   ports:
   - port: 27017
   type: ClusterIP
@@ -83,7 +83,7 @@ spec:
   selector:
     app: temperatura
   ports:
-  - port: 80
+  - port: 3000
     targetPort: 8081
     #nodePort: 30000
   type: LoadBalancer
